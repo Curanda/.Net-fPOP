@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "ons4XnGPktQz4cKZNnHbXw7tTPekjIbPEzBKIeARdKI=",
+  "Source": "fPOP-REST",
+  "BasePath": "_content/fPOP-REST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
