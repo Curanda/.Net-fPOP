@@ -10,10 +10,10 @@ namespace fPOP_REST.Controllers
     public abstract class BaseController<TEntity> : ControllerBase
         where TEntity : class, IEntity
     {
-        protected readonly FirePopDbContext _context;
+        protected readonly fPOP_Context _context;
         protected readonly DbSet<TEntity> _dbSet;
 
-        public BaseController(FirePopDbContext context)
+        public BaseController(fPOP_Context context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

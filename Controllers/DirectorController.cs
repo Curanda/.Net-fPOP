@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class DirectorController : BaseController<Director>
 {
-    public DirectorController(FirePopDbContext context) : base(context)
+    public DirectorController(fPOP_Context context) : base(context)
     {
     }
 }

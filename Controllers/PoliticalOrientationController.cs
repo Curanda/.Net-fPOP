@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class PoliticalOrientationController : BaseController<PoliticalOrientation>
 {
-    public PoliticalOrientationController(FirePopDbContext context) : base(context)
+    public PoliticalOrientationController(fPOP_Context context) : base(context)
     {
     }
 }

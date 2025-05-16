@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class LanguageController : BaseController<Language>
 {
-    public LanguageController(FirePopDbContext context) : base(context)
+    public LanguageController(fPOP_Context context) : base(context)
     {
     }
 }

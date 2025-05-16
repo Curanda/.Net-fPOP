@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class ImageStoreController : BaseController<ImageStore>
 {
-    public ImageStoreController(FirePopDbContext context) : base(context)
+    public ImageStoreController(fPOP_Context context) : base(context)
     {
     }
 }

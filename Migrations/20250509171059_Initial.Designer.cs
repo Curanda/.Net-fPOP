@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using fPOP_REST.Data;
 
@@ -10,10 +11,12 @@ using fPOP_REST.Data;
 
 namespace fPOP_REST.Migrations
 {
-    [DbContext(typeof(FirePopDbContext))]
-    partial class FirePopDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(fPOP_Context))]
+    [Migration("20250509171059_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actor");
+                    b.ToTable("Actor", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Animal", b =>
@@ -55,7 +58,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Animal");
+                    b.ToTable("Animal", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Country", b =>
@@ -73,7 +76,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.ToTable("Country", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.DefaultCategory", b =>
@@ -91,7 +94,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DefaultCategory");
+                    b.ToTable("DefaultCategory", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Director", b =>
@@ -109,7 +112,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Director");
+                    b.ToTable("Director", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Gender", b =>
@@ -127,7 +130,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gender");
+                    b.ToTable("Gender", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.ImageStore", b =>
@@ -148,7 +151,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ImageStore");
+                    b.ToTable("ImageStore", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Language", b =>
@@ -166,7 +169,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Language");
+                    b.ToTable("Language", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.PoliticalOrientation", b =>
@@ -184,7 +187,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PoliticalOrientation");
+                    b.ToTable("PoliticalOrientation", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.Religion", b =>
@@ -202,7 +205,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Religion");
+                    b.ToTable("Religion", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.SexualOrientation", b =>
@@ -220,7 +223,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SexualOrientation");
+                    b.ToTable("SexualOrientation", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.StreamingService", b =>
@@ -238,7 +241,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StreamingService");
+                    b.ToTable("StreamingService", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.TrendingMovie", b =>
@@ -280,7 +283,7 @@ namespace fPOP_REST.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TrendingMovie");
+                    b.ToTable("TrendingMovie", (string)null);
                 });
 
             modelBuilder.Entity("fPOP_REST.Model.User", b =>
@@ -291,10 +294,13 @@ namespace fPOP_REST.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Birthday")
-                        .HasColumnType("Date");
+                    b.Property<string>("Birthday")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
-                    b.Property<string>("ChosenDefaultPreferences")
+                    b.PrimitiveCollection<string>("ChosenDefaultPreferences")
+                        .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
                     b.Property<string>("CountryOfBirth")
@@ -310,14 +316,16 @@ namespace fPOP_REST.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("FavoriteActors")
+                    b.PrimitiveCollection<string>("FavoriteActors")
+                        .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
                     b.Property<string>("FavoriteAnimal")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("FavoriteDirectors")
+                    b.PrimitiveCollection<string>("FavoriteDirectors")
+                        .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
                     b.Property<string>("FirstLanguage")
@@ -336,8 +344,10 @@ namespace fPOP_REST.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValue("");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -349,8 +359,8 @@ namespace fPOP_REST.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("ProfilePicture")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Religion")
                         .HasMaxLength(20)
@@ -364,15 +374,17 @@ namespace fPOP_REST.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("StarredMovies")
+                    b.PrimitiveCollection<string>("StarredMovies")
+                        .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
-                    b.Property<string>("UserDefinedPreferences")
+                    b.PrimitiveCollection<string>("UserDefinedPreferences")
+                        .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
                 });
 #pragma warning restore 612, 618
         }

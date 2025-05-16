@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class DefaultCategoryController : BaseController<DefaultCategory>
 {
-    public DefaultCategoryController(FirePopDbContext context) : base(context)
+    public DefaultCategoryController(fPOP_Context context) : base(context)
     {
     }
 }

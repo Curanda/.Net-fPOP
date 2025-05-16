@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class GenderController : BaseController<Gender>
 {
-    public GenderController(FirePopDbContext context) : base(context)
+    public GenderController(fPOP_Context context) : base(context)
     {
     }
 }

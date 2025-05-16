@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class StreamingServiceController : BaseController<StreamingService>
 {
-    public StreamingServiceController(FirePopDbContext context) : base(context)
+    public StreamingServiceController(fPOP_Context context) : base(context)
     {
     }
 }

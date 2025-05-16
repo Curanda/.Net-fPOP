@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class TrendingMovieController : BaseController<TrendingMovie>
 {
-    public TrendingMovieController(FirePopDbContext context) : base(context)
+    public TrendingMovieController(fPOP_Context context) : base(context)
     {
     }
 }

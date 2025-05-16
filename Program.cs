@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("FirePopDbContext") ?? throw new InvalidOperationException("Connection string 'FirePopDbContext' not found.");
 
-builder.Services.AddDbContext<FirePopDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<fPOP_Context>(options => options.UseSqlServer(connectionString));
 
 
 builder.Services.AddControllers();

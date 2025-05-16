@@ -7,9 +7,17 @@ namespace fPOP_REST.Model;
 
 public class User: IEntity
 {
+    public User()
+    {
+        ChosenDefaultPreferences = new List<string>();
+        UserDefinedPreferences = new List<string>();
+        StarredMovies = new List<string>();
+        FavoriteDirectors = new List<string>();
+        FavoriteActors = new List<string>();
+    }
     [Key]
-    [Required(ErrorMessage = "Id is required")]
-    public required int Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
     
     [Required(ErrorMessage = "Name is required")]
     [MaxLength(50, ErrorMessage = "Name can contain up to 50 characters")]
@@ -34,11 +42,11 @@ public class User: IEntity
     public List<string>? UserDefinedPreferences { get; set; }
     
     [Required(ErrorMessage = "Birthday is required")]
-    [Column(TypeName = "Date")]
-    public required DateTime Birthday { get; set; }
+    [MaxLength(15, ErrorMessage = "Birthday can contain up to 15 characters")]
+    public required string Birthday { get; set; } = string.Empty;
     
     [Url(ErrorMessage = "Invalid URL format")]
-    [MaxLength(200, ErrorMessage = "Profile picture URL can contain up to 50 characters")]
+    [MaxLength(500, ErrorMessage = "Profile picture URL can contain up to 500 characters")]
     public string? ProfilePicture { get; set; }
     
     [ForeignKey("Gender.Name")]
@@ -78,4 +86,6 @@ public class User: IEntity
     [MaxLength(20, ErrorMessage="Animal can contain up to 20 characters")]
     [ForeignKey("Animal.Name")]
     public string? FavoriteAnimal { get; set; }
+
+    public bool IsActive { get; set; } = true;
 }

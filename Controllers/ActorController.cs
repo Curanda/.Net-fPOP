@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class ActorController : BaseController<Actor>
 {
-    public ActorController(FirePopDbContext context) : base(context)
+    public ActorController(fPOP_Context context) : base(context)
     {
     }
 }

@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class SexualOrientationController : BaseController<SexualOrientation>
 {
-    public SexualOrientationController(FirePopDbContext context) : base(context)
+    public SexualOrientationController(fPOP_Context context) : base(context)
     {
     }
 }

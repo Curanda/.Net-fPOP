@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fPOP-REST")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd5d2ec3517c491939fa3f0b164ee8adca4b1d4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("fPOP-REST")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fPOP-REST")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

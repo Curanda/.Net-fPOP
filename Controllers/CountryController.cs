@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class CountryController : BaseController<Country>
 {
-    public CountryController(FirePopDbContext context) : base(context)
+    public CountryController(fPOP_Context context) : base(context)
     {
     }
 }

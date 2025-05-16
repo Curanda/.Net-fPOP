@@ -5,7 +5,7 @@ namespace fPOP_REST.Controllers;
 
 public class AnimalController : BaseController<Animal>
 {
-    public AnimalController(FirePopDbContext context) : base(context)
+    public AnimalController(fPOP_Context context) : base(context)
     {
     }
 }
