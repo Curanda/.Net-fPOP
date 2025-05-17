@@ -1,4 +1,5 @@
 using fPOP_REST.Data;
+using fPOP_REST.Utilities;
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSingleton<ITmdbCacher, TmdbCacher>();
+builder.Services.AddHostedService<TmdbStart>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,3 +42,6 @@ app.UseRouting();
 
 app.MapControllers();
 app.Run();
+
+// var res = await TmdbCaller.GetTrendingMovies();
+// Console.WriteLine(res);

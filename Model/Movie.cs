@@ -9,27 +9,31 @@ public class Movie
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     
+    
+    public string ImdbId { get; set; } = string.Empty;
+    
+    public string Title { get; set; } = string.Empty;
+    
+    public string Year { get; set; } = string.Empty;
+    
+    public string Rating { get; set; } = string.Empty;
+    
+    public string Poster { get; set; } = string.Empty;
+    
+    public string Plot { get; set; } = string.Empty;
+    
+    public string Actors { get; set; } = string.Empty;
+
     [ForeignKey("Language.Name")]
-    [Required(ErrorMessage = "Please provide movie language")]
-    [Display(Name = "Language name")]
     public required string Language { get; set; }
     
     [ForeignKey("Country.Name")]    
-    [Required(ErrorMessage = "Please provide movie country")]
-    [Display(Name = "Country of origin")]
     public required string Country { get; set; }
     
     [ForeignKey("Director.Name")]
-    [Required(ErrorMessage = "Please provide movie director. Choose unknown if the director is unknown")]
-    [Display(Name = "Director name")]
     public required string Director { get; set; }
     
     
-    
-
-    
     [ForeignKey("DefaultCategory.Name")]
-    [Required(ErrorMessage = "Please provide movie genre")]
-    [Display(Name = "Movie genre")]
     public required string Genre { get; set; }
 }

@@ -271,3 +271,5 @@
 /Users/mac/Documents/RN-projects/fPop-main/fPOP-backend/fPOP-REST/obj/Debug/net9.0/fPOP-REST.pdb
 /Users/mac/Documents/RN-projects/fPop-main/fPOP-backend/fPOP-REST/obj/Debug/net9.0/fPOP-REST.genruntimeconfig.cache
 /Users/mac/Documents/RN-projects/fPop-main/fPOP-backend/fPOP-REST/obj/Debug/net9.0/ref/fPOP-REST.dll
+/Users/mac/Documents/RN-projects/fPop-main/fPOP-backend/fPOP-REST/bin/Debug/net9.0/System.Formats.Asn1.dll
+/Users/mac/Documents/RN-projects/fPop-main/fPOP-backend/fPOP-REST/bin/Debug/net9.0/System.Text.Json.dll
